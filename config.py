@@ -1,0 +1,2 @@
+TG_TOKEN = '6616658373:AAEbJH6qj7r_1yM9i1hNCMb2h4kydkv6b1g'
+LANG = 'ru'

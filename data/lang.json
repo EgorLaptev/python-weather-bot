@@ -1,0 +1,14 @@
+{
+    "en": {
+        "welcome": "Hi there, I am Weather bot. I'll say you weather in any spot on the earth!",
+        "unknown": "Sorry, but i can't find this city",
+        "result": "Current weather in %s: \n☀️ %s °C (%s °C)\n💨 Wind %s м/c\n💦 Humidity %s%%",
+        "language": "Select a language"
+    },
+    "ru": {
+        "welcome": "Привет, я бот с погодой. Я скажу вам, какая сейчас погода в любой точке земли!",
+        "unknown": "Извините, но я не могу найти этот город",
+        "result": "Текущая погода в городе %s: \n☀️ %s °C (%s °C)\n💨 Ветер %s м/c\n💦 Влажность %s%% ",
+        "language": "Выберите язык"
+    }
+}
