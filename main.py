@@ -10,26 +10,18 @@ with open('data/lang.json', encoding='UTF-8') as lang_file:
 
 bot = telebot.TeleBot(TG_TOKEN)
 
-@bot.message_handler(commands=['start'])
+@bot.message_handler(commands=['start', 'weather'])
 def start_message(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
     markup.row('Санкт-Петербург', 'Москва')
     markup.row('Уфа', 'Казань', 'Омск')
     markup.row('Екатеринбург', 'Новосибирск')
     bot.send_message(message.chat.id, lang['welcome'], reply_markup=markup)
-    weather(message)
-
-@bot.message_handler(commands=['weather'])
-def weather(message):
-    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    markup.row('Санкт-Петербург', 'Москва')
-    markup.row('Уфа', 'Казань', 'Омск')
-    markup.row('Екатеринбург', 'Новосибирск')
 
 @bot.message_handler(content_types=['text'])
 def send_weather(message):
     try:
-        data = Weather.get(message.text)
+        data = Weather.get(message.text)['fact']
         result = lang['result'] % (message.text, data['temp'], data['feels_like'], data['wind_speed'], data['humidity'])
         bot.send_message(message.chat.id, result)
     except Exception as error:
@@ -37,4 +29,5 @@ def send_weather(message):
 
 
 # launch bot
-bot.polling()
+if __name__ == '__main__':
+    bot.polling()
